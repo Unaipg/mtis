@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//src/org/example/www/TravelService/Airport.java=UTF-8
+encoding//src/org/example/www/TravelService/EmptyType.java=UTF-8
+encoding//src/org/example/www/TravelService/Flight.java=UTF-8
+encoding//src/org/example/www/TravelService/FlightsReq.java=UTF-8
+encoding//src/org/example/www/TravelService/TravelServiceSOAPImpl.java=UTF-8
+encoding//src/org/example/www/TravelService/TravelServiceSOAPSkeleton.java=UTF-8
+encoding//src/org/example/www/TravelService/TravelServiceSOAPStub.java=UTF-8
+encoding//src/org/example/www/TravelService/TravelService_PortType.java=UTF-8
+encoding//src/org/example/www/TravelService/TravelService_Service.java=UTF-8
+encoding//src/org/example/www/TravelService/TravelService_ServiceLocator.java=UTF-8

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/TravelService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TravelService" targetNamespace="http://www.example.org/TravelService/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/TravelService/">
+      <xsd:element name="NewOperation">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="NewOperationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:complexType name="emptyType"/>
+            <xsd:complexType name="Airport">
+            	<xsd:attribute name="id" type="xsd:int"/>
+            	<xsd:attribute name="name" type="xsd:string"/>
+            	<xsd:attribute name="country" type="xsd:string"/>
+            </xsd:complexType>
+            <xsd:complexType name="flightsReq">
+            	<xsd:attribute name="airport1" type="xsd:int"/>
+            	<xsd:attribute name="airport2" type="xsd:int"/>
+            	<xsd:attribute name="startdate" type="xsd:date"/>
+            	<xsd:attribute name="enddate" type="xsd:date"/>
+            </xsd:complexType>
+            <xsd:complexType name="Flight">
+            	<xsd:attribute name="id" type="xsd:int"/>
+            	<xsd:attribute name="date" type="xsd:dateTime"/>
+            	<xsd:attribute name="price" type="xsd:float"/>
+            </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getAirportsRequest">
+    <wsdl:part name="parameters" type="tns:emptyType"/>
+  </wsdl:message>
+  <wsdl:message name="getAirportsResponse">
+    <wsdl:part name="parameters" type="tns:Airport"/>
+  </wsdl:message>
+  <wsdl:message name="getFlightsRequest">
+  	<wsdl:part name="getFlightsRequest" type="tns:flightsReq"/>
+  </wsdl:message>
+  <wsdl:message name="getFlightsResponse">
+  	<wsdl:part name="getFlightsResponse" type="tns:Flight"/>
+  </wsdl:message>
+  <wsdl:message name="bookFlightRequest">
+  	<wsdl:part name="bookFlightRequest" type="xsd:int"/>
+  </wsdl:message>
+  <wsdl:message name="bookFlightResponse">
+  	<wsdl:part name="bookFlightResponse" type="xsd:boolean"/>
+  </wsdl:message>
+  <wsdl:portType name="TravelService">
+    <wsdl:operation name="getAirports">
+      <wsdl:input message="tns:getAirportsRequest"/>
+      <wsdl:output message="tns:getAirportsResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getFlights">
+    	<wsdl:input message="tns:getFlightsRequest"/>
+    	<wsdl:output message="tns:getFlightsResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="bookFlight">
+    	<wsdl:input message="tns:bookFlightRequest"/>
+    	<wsdl:output message="tns:bookFlightResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TravelServiceSOAP" type="tns:TravelService">
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  	<wsdl:operation name="getAirports">
+  		<soap:operation soapAction="http://www.example.org/TravelService/getAirports"/>
+  		<wsdl:input>
+  			<soap:body use="literal"/>
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal"/>
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="getFlights">
+  		<soap:operation soapAction="http://www.example.org/TravelService/getFlights"/>
+  		<wsdl:input>
+  			<soap:body use="literal"/>
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal"/>
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="bookFlight">
+  		<soap:operation soapAction="http://www.example.org/TravelService/bookFlight"/>
+  		<wsdl:input>
+  			<soap:body use="literal"/>
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal"/>
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TravelService">
+    <wsdl:port binding="tns:TravelServiceSOAP" name="TravelServiceSOAP">
+      <soap:address location="http://localhost:8080/CarService/services/TravelServiceSOAP"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
