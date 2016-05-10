@@ -43,16 +43,16 @@
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="getActivitiesRequest">
-    <wsdl:part name="parameters" type="xsd:string"/>
+    <wsdl:part name="parameters" element="tns:getActivities"/>
   </wsdl:message>
   <wsdl:message name="getActivitiesResponse">
-    <wsdl:part name="parameters" type="tns:Activity"/>
+    <wsdl:part name="parameters" element="tns:getActivitiesResponse"/>
   </wsdl:message>
   <wsdl:message name="bookActivityRequest">
-  	<wsdl:part name="parameters" type="xsd:int"></wsdl:part>
+  	<wsdl:part name="parameters" element="tns:bookActivity"></wsdl:part>
   </wsdl:message>
   <wsdl:message name="bookActivityResponse">
-  	<wsdl:part name="parameters" type="xsd:boolean"></wsdl:part>
+  	<wsdl:part name="parameters" element="tns:bookActivityResponse"></wsdl:part>
   </wsdl:message>
   <wsdl:portType name="ActivitiesService">
     <wsdl:operation name="getActivities">
