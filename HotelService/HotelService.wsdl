@@ -2,26 +2,45 @@
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/HotelService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="HotelService" targetNamespace="http://www.example.org/HotelService/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://www.example.org/HotelService/">
+      <xsd:element name="getHotels">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="in" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
       <xsd:element name="getHotelsResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="out" type="xsd:string"/>
+            <xsd:element name="out" type="tns:Hotel"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getRooms">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="in" type="tns:BookDates" />
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
       <xsd:element name="getRoomsResponse">
       	<xsd:complexType>
       		<xsd:sequence>
-
-      			<xsd:element name="out" type="xsd:string"></xsd:element>
+      			<xsd:element name="out" type="tns:Room"></xsd:element>
       		</xsd:sequence>
       	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="makeBooking">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="in" type="tns:Booking" />
+          </xsd:sequence>
+        </xsd:complexType>
       </xsd:element>
       <xsd:element name="makeBookingResponse">
       	<xsd:complexType>
       		<xsd:sequence>
-
-      			<xsd:element name="out" type="xsd:string"></xsd:element>
+      			<xsd:element name="out" type="xsd:boolean"></xsd:element>
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>
@@ -47,22 +66,22 @@
         </xsd:schema>
   </wsdl:types>
   <wsdl:message name="getHotelsRequest">
-    <wsdl:part name="parameters" type="xsd:string"/>
+    <wsdl:part name="parameters" element="tns:getHotels"/>
   </wsdl:message>
   <wsdl:message name="getHotelsResponse">
-    <wsdl:part name="parameters" type="tns:Hotel"/>
+    <wsdl:part name="parameters" element="tns:getHotelsResponse"/>
   </wsdl:message>
   <wsdl:message name="getRoomsRequest">
-  	<wsdl:part name="getRoomsRequest" type="tns:BookDates"></wsdl:part>
+  	<wsdl:part name="parameters" element="tns:getRooms"></wsdl:part>
   </wsdl:message>
   <wsdl:message name="getRoomsResponse">
-  	<wsdl:part name="parameters" type="tns:Room"></wsdl:part>
+  	<wsdl:part name="parameters" element="tns:getRoomsResponse"></wsdl:part>
   </wsdl:message>
   <wsdl:message name="makeBookingRequest">
-  	<wsdl:part name="makeBookingRequest" type="tns:Booking"></wsdl:part>
+  	<wsdl:part name="parameters" element="tns:makeBooking"></wsdl:part>
   </wsdl:message>
   <wsdl:message name="makeBookingResponse">
-  	<wsdl:part name="parameters" type="xsd:boolean"></wsdl:part>
+  	<wsdl:part name="parameters" type="tns:makeBookingResponse"></wsdl:part>
   </wsdl:message>
   <wsdl:portType name="HotelService">
     <wsdl:operation name="getHotels">
