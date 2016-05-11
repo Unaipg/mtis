@@ -12,7 +12,7 @@
       <xsd:element name="getActivitiesResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="out" type="xsd:string"/>
+            <xsd:element name="out" type="tns:Activities"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -28,7 +28,7 @@
       	<xsd:complexType>
       		<xsd:sequence>
 
-      			<xsd:element name="out" type="xsd:string"></xsd:element>
+      			<xsd:element name="out" type="xsd:boolean"></xsd:element>
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>
