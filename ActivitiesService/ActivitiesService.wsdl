@@ -12,7 +12,7 @@
       <xsd:element name="getActivitiesResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="out" type="xsd:string"/>
+            <xsd:element name="out" type="tns:Activities"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -28,7 +28,7 @@
       	<xsd:complexType>
       		<xsd:sequence>
 
-      			<xsd:element name="out" type="xsd:string"></xsd:element>
+      			<xsd:element name="out" type="xsd:boolean"></xsd:element>
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>
@@ -40,19 +40,24 @@
       	<xsd:attribute name="price" type="xsd:float"></xsd:attribute>
       	<xsd:attribute name="type" type="xsd:string"></xsd:attribute>
       </xsd:complexType>
+      <xsd:complexType name="Activities">
+        <xsd:sequence>
+        	<xsd:element name="item" type="tns:Activity" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="getActivitiesRequest">
-    <wsdl:part name="parameters" type="xsd:string"/>
+    <wsdl:part name="parameters" element="tns:getActivities"/>
   </wsdl:message>
   <wsdl:message name="getActivitiesResponse">
-    <wsdl:part name="parameters" type="tns:Activity"/>
+    <wsdl:part name="parameters" element="tns:getActivitiesResponse"/>
   </wsdl:message>
   <wsdl:message name="bookActivityRequest">
-  	<wsdl:part name="parameters" type="xsd:int"></wsdl:part>
+  	<wsdl:part name="parameters" element="tns:bookActivity"></wsdl:part>
   </wsdl:message>
   <wsdl:message name="bookActivityResponse">
-  	<wsdl:part name="parameters" type="xsd:boolean"></wsdl:part>
+  	<wsdl:part name="parameters" element="tns:bookActivityResponse"></wsdl:part>
   </wsdl:message>
   <wsdl:portType name="ActivitiesService">
     <wsdl:operation name="getActivities">
