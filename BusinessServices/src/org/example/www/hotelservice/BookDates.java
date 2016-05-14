@@ -20,9 +20,102 @@
         /* This type was generated from the piece of schema that had
                 name = BookDates
                 Namespace URI = http://www.example.org/HotelService/
-                Namespace Prefix = ns3
+                Namespace Prefix = ns1
                 */
             
+
+                        /**
+                        * field for Hotelid
+                        * This was an Attribute!
+                        */
+
+                        
+                                    protected int localHotelid ;
+                                
+
+                           /**
+                           * Auto generated getter method
+                           * @return int
+                           */
+                           public  int getHotelid(){
+                               return localHotelid;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param Hotelid
+                               */
+                               public void setHotelid(int param){
+                            
+                                            this.localHotelid=param;
+                                       
+
+                               }
+                            
+
+                        /**
+                        * field for Startdate
+                        * This was an Attribute!
+                        */
+
+                        
+                                    protected java.util.Date localStartdate ;
+                                
+
+                           /**
+                           * Auto generated getter method
+                           * @return java.util.Date
+                           */
+                           public  java.util.Date getStartdate(){
+                               return localStartdate;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param Startdate
+                               */
+                               public void setStartdate(java.util.Date param){
+                            
+                                            this.localStartdate=param;
+                                       
+
+                               }
+                            
+
+                        /**
+                        * field for Enddate
+                        * This was an Attribute!
+                        */
+
+                        
+                                    protected java.util.Date localEnddate ;
+                                
+
+                           /**
+                           * Auto generated getter method
+                           * @return java.util.Date
+                           */
+                           public  java.util.Date getEnddate(){
+                               return localEnddate;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param Enddate
+                               */
+                               public void setEnddate(java.util.Date param){
+                            
+                                            this.localEnddate=param;
+                                       
+
+                               }
+                            
 
      
      
@@ -83,6 +176,33 @@
                
                    }
                
+                                                   if (localHotelid!=java.lang.Integer.MIN_VALUE) {
+                                               
+                                                writeAttribute("",
+                                                         "hotelid",
+                                                         org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localHotelid), xmlWriter);
+
+                                            
+                                      }
+                                    
+                                            if (localStartdate != null){
+                                        
+                                                writeAttribute("",
+                                                         "startdate",
+                                                         org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localStartdate), xmlWriter);
+
+                                            
+                                      }
+                                    
+                                            if (localEnddate != null){
+                                        
+                                                writeAttribute("",
+                                                         "enddate",
+                                                         org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localEnddate), xmlWriter);
+
+                                            
+                                      }
+                                    
                     xmlWriter.writeEndElement();
                
 
@@ -90,7 +210,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.example.org/HotelService/")){
-                return "ns3";
+                return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -268,6 +388,21 @@
                  java.util.ArrayList attribList = new java.util.ArrayList();
 
                 
+                            attribList.add(
+                            new javax.xml.namespace.QName("","hotelid"));
+                            
+                                      attribList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localHotelid));
+                                
+                            attribList.add(
+                            new javax.xml.namespace.QName("","startdate"));
+                            
+                                      attribList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localStartdate));
+                                
+                            attribList.add(
+                            new javax.xml.namespace.QName("","enddate"));
+                            
+                                      attribList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localEnddate));
+                                
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -340,6 +475,56 @@
                 
 
                 
+                    // handle attribute "hotelid"
+                    java.lang.String tempAttribHotelid =
+                        
+                                reader.getAttributeValue(null,"hotelid");
+                            
+                   if (tempAttribHotelid!=null){
+                         java.lang.String content = tempAttribHotelid;
+                        
+                                                 object.setHotelid(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(tempAttribHotelid));
+                                            
+                    } else {
+                       
+                                           object.setHotelid(java.lang.Integer.MIN_VALUE);
+                                       
+                    }
+                    handledAttributes.add("hotelid");
+                    
+                    // handle attribute "startdate"
+                    java.lang.String tempAttribStartdate =
+                        
+                                reader.getAttributeValue(null,"startdate");
+                            
+                   if (tempAttribStartdate!=null){
+                         java.lang.String content = tempAttribStartdate;
+                        
+                                                 object.setStartdate(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToDate(tempAttribStartdate));
+                                            
+                    } else {
+                       
+                    }
+                    handledAttributes.add("startdate");
+                    
+                    // handle attribute "enddate"
+                    java.lang.String tempAttribEnddate =
+                        
+                                reader.getAttributeValue(null,"enddate");
+                            
+                   if (tempAttribEnddate!=null){
+                         java.lang.String content = tempAttribEnddate;
+                        
+                                                 object.setEnddate(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToDate(tempAttribEnddate));
+                                            
+                    } else {
+                       
+                    }
+                    handledAttributes.add("enddate");
+                    
                     
                     reader.next();
                 

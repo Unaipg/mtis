@@ -71,8 +71,11 @@
       	<xsd:attribute name="startdate" type="xsd:date"></xsd:attribute>
       	<xsd:attribute name="enddate" type="xsd:date"></xsd:attribute>
       </xsd:complexType>
-  
-            <xsd:complexType name="BookDates"></xsd:complexType>
+  	  <xsd:complexType name="BookDates">
+  	  	<xsd:attribute name="hotelid" type="xsd:int"></xsd:attribute>
+      	<xsd:attribute name="startdate" type="xsd:date"></xsd:attribute>
+      	<xsd:attribute name="enddate" type="xsd:date"></xsd:attribute>
+  	  </xsd:complexType>
         </xsd:schema>
   </wsdl:types>
   <wsdl:message name="getHotelsRequest">
