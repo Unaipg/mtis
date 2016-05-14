@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.3  Built on : Jun 27, 2015 (11:17:49 BST) --><serviceGroup>
+    <service name="HotelService">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.example.www.hotelservice.HotelServiceMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">org.example.www.hotelservice.HotelServiceSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="getHotels" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/HotelService/">
+            <actionMapping>http://www.example.org/HotelService/getHotels</actionMapping>
+            <outputActionMapping>http://www.example.org/HotelService/HotelService/getHotelsResponse</outputActionMapping>
+        </operation>
+        <operation name="makeBooking" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/HotelService/">
+            <actionMapping>http://www.example.org/HotelService/makeBooking</actionMapping>
+            <outputActionMapping>http://www.example.org/HotelService/HotelService/makeBookingResponse</outputActionMapping>
+        </operation>
+        <operation name="getRooms" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/HotelService/">
+            <actionMapping>http://www.example.org/HotelService/getRooms</actionMapping>
+            <outputActionMapping>http://www.example.org/HotelService/HotelService/getRoomsResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

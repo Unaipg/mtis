@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ActivitiesService" targetNamespace="http://www.example.org/ActivitiesService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.example.org/ActivitiesService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/ActivitiesService/">
+      <xsd:element name="getActivities">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getActivitiesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="tns:Activities"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="bookActivity">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="in" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="bookActivityResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="out" type="xsd:boolean"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Activity">
+      	<xsd:attribute name="id" type="xsd:int"/>
+      	<xsd:attribute name="name" type="xsd:string"/>
+      	<xsd:attribute name="description" type="xsd:string"/>
+      	<xsd:attribute name="date" type="xsd:dateTime"/>
+      	<xsd:attribute name="price" type="xsd:float"/>
+      	<xsd:attribute name="type" type="xsd:string"/>
+      </xsd:complexType>
+      <xsd:complexType name="Activities">
+        <xsd:sequence>
+        	<xsd:element maxOccurs="unbounded" name="item" type="tns:Activity"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="bookActivityResponse">
+    <wsdl:part name="parameters" element="tns:bookActivityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getActivitiesResponse">
+    <wsdl:part name="parameters" element="tns:getActivitiesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getActivitiesRequest">
+    <wsdl:part name="parameters" element="tns:getActivities">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="bookActivityRequest">
+    <wsdl:part name="parameters" element="tns:bookActivity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ActivitiesService">
+    <wsdl:operation name="getActivities">
+      <wsdl:input message="tns:getActivitiesRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getActivitiesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bookActivity">
+      <wsdl:input message="tns:bookActivityRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:bookActivityResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ActivitiesServiceSOAP" type="tns:ActivitiesService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getActivities">
+      <soap:operation soapAction="http://www.example.org/ActivitiesService/getActivities"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bookActivity">
+      <soap:operation soapAction="http://www.example.org/ActivitiesService/bookActivity"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ActivitiesService">
+    <wsdl:port name="ActivitiesServiceSOAP" binding="tns:ActivitiesServiceSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
