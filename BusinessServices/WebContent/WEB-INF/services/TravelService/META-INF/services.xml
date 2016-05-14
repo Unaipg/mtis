@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.3  Built on : Jun 27, 2015 (11:17:49 BST) --><serviceGroup>
+    <service name="TravelService">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.example.www.travelservice.TravelServiceMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">org.example.www.travelservice.TravelServiceSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="getAirports" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/TravelService/">
+            <actionMapping>http://www.example.org/TravelService/getAirports</actionMapping>
+            <outputActionMapping>http://www.example.org/TravelService/TravelService/getAirportsResponse</outputActionMapping>
+        </operation>
+        <operation name="bookFlight" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/TravelService/">
+            <actionMapping>http://www.example.org/TravelService/bookFlight</actionMapping>
+            <outputActionMapping>http://www.example.org/TravelService/TravelService/bookFlightResponse</outputActionMapping>
+        </operation>
+        <operation name="getFlights" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/TravelService/">
+            <actionMapping>http://www.example.org/TravelService/getFlights</actionMapping>
+            <outputActionMapping>http://www.example.org/TravelService/TravelService/getFlightsResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>
