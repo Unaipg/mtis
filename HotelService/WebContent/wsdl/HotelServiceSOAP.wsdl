@@ -19,7 +19,7 @@
       <xsd:element name="getRooms">
         <xsd:complexType>
           <xsd:sequence>
-          	<xsd:element name="in" type="tns:BookDates"/>
+          	<xsd:element name="in" type="xsd:int"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>

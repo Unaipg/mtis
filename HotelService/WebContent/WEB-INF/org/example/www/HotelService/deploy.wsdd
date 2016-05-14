@@ -45,14 +45,6 @@
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
         encodingStyle=""
       />
-      <typeMapping
-        xmlns:ns="http://www.example.org/HotelService/"
-        qname="ns:BookDates"
-        type="java:org.example.www.HotelService.BookDates"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
       <arrayMapping
         xmlns:ns="http://www.example.org/HotelService/"
         qname="ns:Rooms"
