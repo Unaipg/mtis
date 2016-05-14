@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="TravelService" targetNamespace="http://www.example.org/TravelService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.example.org/TravelService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/TravelService/">
+      <xsd:element name="getAirports">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="tns:emptyType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getAirportsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="tns:Airports"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getFlights">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="tns:flightsReq"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getFlightsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="tns:Flights"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="bookFlight">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="bookFlightResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:complexType name="emptyType"/>
+            <xsd:complexType name="Airport">
+            	<xsd:attribute name="id" type="xsd:int"/>
+            	<xsd:attribute name="name" type="xsd:string"/>
+            	<xsd:attribute name="country" type="xsd:string"/>
+            </xsd:complexType>
+            <xsd:complexType name="Airports">
+               <xsd:sequence>
+        	     <xsd:element maxOccurs="unbounded" name="item" type="tns:Airport"/>
+               </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="flightsReq">
+            	<xsd:attribute name="airport1" type="xsd:int"/>
+            	<xsd:attribute name="airport2" type="xsd:int"/>
+            	<xsd:attribute name="startdate" type="xsd:date"/>
+            	<xsd:attribute name="enddate" type="xsd:date"/>
+            </xsd:complexType>
+            <xsd:complexType name="Flight">
+            	<xsd:attribute name="id" type="xsd:int"/>
+            	<xsd:attribute name="date" type="xsd:dateTime"/>
+            	<xsd:attribute name="price" type="xsd:float"/>
+            </xsd:complexType>
+            <xsd:complexType name="Flights">
+        	  <xsd:sequence>
+        	    <xsd:element maxOccurs="unbounded" name="item" type="tns:Flight"/>
+              </xsd:sequence>
+            </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="bookFlightRequest">
+    <wsdl:part name="parameters" element="tns:bookFlight">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAirportsRequest">
+    <wsdl:part name="parameters" element="tns:getAirports">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFlightsResponse">
+    <wsdl:part name="parameters" element="tns:getFlightsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAirportsResponse">
+    <wsdl:part name="parameters" element="tns:getAirportsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFlightsRequest">
+    <wsdl:part name="parameters" element="tns:getFlights">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="bookFlightResponse">
+    <wsdl:part name="parameters" element="tns:bookFlightResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TravelService">
+    <wsdl:operation name="getAirports">
+      <wsdl:input message="tns:getAirportsRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getAirportsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFlights">
+      <wsdl:input message="tns:getFlightsRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getFlightsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bookFlight">
+      <wsdl:input message="tns:bookFlightRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:bookFlightResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TravelServiceSOAP" type="tns:TravelService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getAirports">
+      <soap:operation soapAction="http://www.example.org/TravelService/getAirports"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFlights">
+      <soap:operation soapAction="http://www.example.org/TravelService/getFlights"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bookFlight">
+      <soap:operation soapAction="http://www.example.org/TravelService/bookFlight"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TravelService">
+    <wsdl:port name="TravelServiceSOAP" binding="tns:TravelServiceSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
