@@ -12,7 +12,7 @@
 
   <!-- Services from CarService WSDL service -->
 
-  <service name="CarServiceSOAP" provider="java:RPC" style="document" use="literal">
+  <service name="CarServiceSOAP" provider="java:RPC" style="wrapped" use="literal">
       <parameter name="wsdlTargetNamespace" value="http://www.example.org/CarService/"/>
       <parameter name="wsdlServiceElement" value="CarService"/>
       <parameter name="schemaUnqualified" value="http://www.example.org/CarService/"/>
@@ -22,12 +22,11 @@
       <parameter name="typeMappingVersion" value="1.2"/>
       <parameter name="allowedMethods" value="*"/>
 
-      <typeMapping
+      <arrayMapping
         xmlns:ns="http://www.example.org/CarService/"
-        qname="ns:getCarsInput"
-        type="java:org.example.www.CarService.GetCarsInput"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        qname="ns:Cars"
+        type="java:org.example.www.CarService.Car[]"
+        innerType="cmp-ns:Car" xmlns:cmp-ns="http://www.example.org/CarService/"
         encodingStyle=""
       />
       <typeMapping

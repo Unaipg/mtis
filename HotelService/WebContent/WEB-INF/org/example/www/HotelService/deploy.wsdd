@@ -12,7 +12,7 @@
 
   <!-- Services from HotelService WSDL service -->
 
-  <service name="HotelServiceSOAP" provider="java:RPC" style="document" use="literal">
+  <service name="HotelServiceSOAP" provider="java:RPC" style="wrapped" use="literal">
       <parameter name="wsdlTargetNamespace" value="http://www.example.org/HotelService/"/>
       <parameter name="wsdlServiceElement" value="HotelService"/>
       <parameter name="schemaUnqualified" value="http://www.example.org/HotelService/"/>
@@ -22,12 +22,11 @@
       <parameter name="typeMappingVersion" value="1.2"/>
       <parameter name="allowedMethods" value="*"/>
 
-      <typeMapping
+      <arrayMapping
         xmlns:ns="http://www.example.org/HotelService/"
-        qname="ns:BookDates"
-        type="java:org.example.www.HotelService.BookDates"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        qname="ns:Hotels"
+        type="java:org.example.www.HotelService.Hotel[]"
+        innerType="cmp-ns:Hotel" xmlns:cmp-ns="http://www.example.org/HotelService/"
         encodingStyle=""
       />
       <typeMapping
@@ -44,6 +43,21 @@
         type="java:org.example.www.HotelService.Room"
         serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://www.example.org/HotelService/"
+        qname="ns:BookDates"
+        type="java:org.example.www.HotelService.BookDates"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://www.example.org/HotelService/"
+        qname="ns:Rooms"
+        type="java:org.example.www.HotelService.Room[]"
+        innerType="cmp-ns:Room" xmlns:cmp-ns="http://www.example.org/HotelService/"
         encodingStyle=""
       />
       <typeMapping

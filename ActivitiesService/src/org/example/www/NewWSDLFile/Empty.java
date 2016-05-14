@@ -1,20 +1,20 @@
 /**
- * EmptyType.java
+ * Empty.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package org.example.www.TravelService;
+package org.example.www.NewWSDLFile;
 
-public class EmptyType  implements java.io.Serializable {
-    public EmptyType() {
+public class Empty  implements java.io.Serializable {
+    public Empty() {
     }
 
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof EmptyType)) return false;
-        EmptyType other = (EmptyType) obj;
+        if (!(obj instanceof Empty)) return false;
+        Empty other = (Empty) obj;
         if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
@@ -40,10 +40,10 @@ public class EmptyType  implements java.io.Serializable {
 
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(EmptyType.class, true);
+        new org.apache.axis.description.TypeDesc(Empty.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("http://www.example.org/TravelService/", "emptyType"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("http://www.example.org/NewWSDLFile/", "empty"));
     }
 
     /**

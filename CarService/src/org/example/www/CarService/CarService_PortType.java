@@ -8,6 +8,6 @@
 package org.example.www.CarService;
 
 public interface CarService_PortType extends java.rmi.Remote {
-    public org.example.www.CarService.Car getCars(org.example.www.CarService.GetCarsInput parameters) throws java.rmi.RemoteException;
-    public boolean rentCart(org.example.www.CarService.RentInfo rentCartRequest) throws java.rmi.RemoteException;
+    public org.example.www.CarService.Car[] getCars(java.lang.String in) throws java.rmi.RemoteException;
+    public boolean rentCars(org.example.www.CarService.RentInfo in) throws java.rmi.RemoteException;
 }

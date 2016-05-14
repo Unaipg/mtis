@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
   <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -32,7 +32,7 @@
   <ns1:parameter name="allowedMethods" value="getVersion"/>
   <ns1:parameter name="className" value="org.apache.axis.Version"/>
  </ns1:service>
- <ns1:service name="HotelServiceSOAP" provider="java:RPC" style="document" use="literal">
+ <ns1:service name="HotelServiceSOAP" provider="java:RPC" style="wrapped" use="literal">
   <ns1:parameter name="allowedMethods" value="*"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="HotelService"/>
@@ -41,10 +41,12 @@
   <ns1:parameter name="wsdlTargetNamespace" value="http://www.example.org/HotelService/"/>
   <ns1:parameter name="wsdlServiceElement" value="HotelService"/>
   <ns1:parameter name="schemaUnqualified" value="http://www.example.org/HotelService/"/>
-  <ns2:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns1:BookDates" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:org.example.www.HotelService.BookDates" xmlns:ns1="http://www.example.org/HotelService/" xmlns:ns2="http://xml.apache.org/axis/wsdd/"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns2:Hotel" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:org.example.www.HotelService.Hotel" xmlns:ns2="http://www.example.org/HotelService/"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns3:Room" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:org.example.www.HotelService.Room" xmlns:ns3="http://www.example.org/HotelService/"/>
+  <ns2:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns1:Hotel" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:org.example.www.HotelService.Hotel" xmlns:ns1="http://www.example.org/HotelService/" xmlns:ns2="http://xml.apache.org/axis/wsdd/"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns2:Room" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:org.example.www.HotelService.Room" xmlns:ns2="http://www.example.org/HotelService/"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns3:BookDates" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:org.example.www.HotelService.BookDates" xmlns:ns3="http://www.example.org/HotelService/"/>
   <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns4:Booking" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:org.example.www.HotelService.Booking" xmlns:ns4="http://www.example.org/HotelService/"/>
+  <ns1:arrayMapping innerType="ns5:Hotel" languageSpecificType="java:org.example.www.HotelService.Hotel[]" qname="ns5:Hotels" xmlns:ns5="http://www.example.org/HotelService/"/>
+  <ns1:arrayMapping innerType="ns6:Room" languageSpecificType="java:org.example.www.HotelService.Room[]" qname="ns6:Rooms" xmlns:ns6="http://www.example.org/HotelService/"/>
  </ns1:service>
  <ns1:transport name="http">
   <ns1:requestFlow>

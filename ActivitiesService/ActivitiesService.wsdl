@@ -59,7 +59,7 @@
   <wsdl:message name="bookActivityResponse">
   	<wsdl:part name="parameters" element="tns:bookActivityResponse"></wsdl:part>
   </wsdl:message>
-  <wsdl:portType name="ActivitiesService">
+   <wsdl:portType name="ActivitiesService">
     <wsdl:operation name="getActivities">
       <wsdl:input message="tns:getActivitiesRequest"/>
       <wsdl:output message="tns:getActivitiesResponse"/>

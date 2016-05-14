@@ -25,34 +25,38 @@ public class HotelServiceSOAPStub extends org.apache.axis.client.Stub implements
         org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("getHotels");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "parameters"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.example.org/HotelService/", "Hotel"));
-        oper.setReturnClass(org.example.www.HotelService.Hotel.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "parameters"));
-        oper.setStyle(org.apache.axis.constants.Style.DOCUMENT);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.example.org/HotelService/", "Hotels"));
+        oper.setReturnClass(org.example.www.HotelService.Hotel[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "out"));
+        param = oper.getReturnParamDesc();
+        param.setItemQName(new javax.xml.namespace.QName("", "item"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         _operations[0] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("getRooms");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "getRoomsRequest"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.example.org/HotelService/", "BookDates"), org.example.www.HotelService.BookDates.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.example.org/HotelService/", "BookDates"), org.example.www.HotelService.BookDates.class, false, false);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.example.org/HotelService/", "Room"));
-        oper.setReturnClass(org.example.www.HotelService.Room.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "parameters"));
-        oper.setStyle(org.apache.axis.constants.Style.DOCUMENT);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.example.org/HotelService/", "Rooms"));
+        oper.setReturnClass(org.example.www.HotelService.Room[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "out"));
+        param = oper.getReturnParamDesc();
+        param.setItemQName(new javax.xml.namespace.QName("", "item"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         _operations[1] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("makeBooking");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "makeBookingRequest"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.example.org/HotelService/", "Booking"), org.example.www.HotelService.Booking.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.example.org/HotelService/", "Booking"), org.example.www.HotelService.Booking.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         oper.setReturnClass(boolean.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "parameters"));
-        oper.setStyle(org.apache.axis.constants.Style.DOCUMENT);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "out"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         _operations[2] = oper;
 
@@ -108,12 +112,30 @@ public class HotelServiceSOAPStub extends org.apache.axis.client.Stub implements
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
+            qName = new javax.xml.namespace.QName("http://www.example.org/HotelService/", "Hotels");
+            cachedSerQNames.add(qName);
+            cls = org.example.www.HotelService.Hotel[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("http://www.example.org/HotelService/", "Hotel");
+            qName2 = new javax.xml.namespace.QName("", "item");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
             qName = new javax.xml.namespace.QName("http://www.example.org/HotelService/", "Room");
             cachedSerQNames.add(qName);
             cls = org.example.www.HotelService.Room.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://www.example.org/HotelService/", "Rooms");
+            cachedSerQNames.add(qName);
+            cls = org.example.www.HotelService.Room[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("http://www.example.org/HotelService/", "Room");
+            qName2 = new javax.xml.namespace.QName("", "item");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
     }
 
@@ -181,7 +203,7 @@ public class HotelServiceSOAPStub extends org.apache.axis.client.Stub implements
         }
     }
 
-    public org.example.www.HotelService.Hotel getHotels(java.lang.String parameters) throws java.rmi.RemoteException {
+    public org.example.www.HotelService.Hotel[] getHotels(java.lang.String in) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -193,11 +215,11 @@ public class HotelServiceSOAPStub extends org.apache.axis.client.Stub implements
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("", "getHotels"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://www.example.org/HotelService/", "getHotels"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {parameters});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {in});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -205,9 +227,9 @@ public class HotelServiceSOAPStub extends org.apache.axis.client.Stub implements
         else {
             extractAttachments(_call);
             try {
-                return (org.example.www.HotelService.Hotel) _resp;
+                return (org.example.www.HotelService.Hotel[]) _resp;
             } catch (java.lang.Exception _exception) {
-                return (org.example.www.HotelService.Hotel) org.apache.axis.utils.JavaUtils.convert(_resp, org.example.www.HotelService.Hotel.class);
+                return (org.example.www.HotelService.Hotel[]) org.apache.axis.utils.JavaUtils.convert(_resp, org.example.www.HotelService.Hotel[].class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -215,7 +237,7 @@ public class HotelServiceSOAPStub extends org.apache.axis.client.Stub implements
 }
     }
 
-    public org.example.www.HotelService.Room getRooms(org.example.www.HotelService.BookDates getRoomsRequest) throws java.rmi.RemoteException {
+    public org.example.www.HotelService.Room[] getRooms(org.example.www.HotelService.BookDates in) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -227,11 +249,11 @@ public class HotelServiceSOAPStub extends org.apache.axis.client.Stub implements
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("", "getRooms"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://www.example.org/HotelService/", "getRooms"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {getRoomsRequest});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {in});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -239,9 +261,9 @@ public class HotelServiceSOAPStub extends org.apache.axis.client.Stub implements
         else {
             extractAttachments(_call);
             try {
-                return (org.example.www.HotelService.Room) _resp;
+                return (org.example.www.HotelService.Room[]) _resp;
             } catch (java.lang.Exception _exception) {
-                return (org.example.www.HotelService.Room) org.apache.axis.utils.JavaUtils.convert(_resp, org.example.www.HotelService.Room.class);
+                return (org.example.www.HotelService.Room[]) org.apache.axis.utils.JavaUtils.convert(_resp, org.example.www.HotelService.Room[].class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -249,7 +271,7 @@ public class HotelServiceSOAPStub extends org.apache.axis.client.Stub implements
 }
     }
 
-    public boolean makeBooking(org.example.www.HotelService.Booking makeBookingRequest) throws java.rmi.RemoteException {
+    public boolean makeBooking(org.example.www.HotelService.Booking in) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -261,11 +283,11 @@ public class HotelServiceSOAPStub extends org.apache.axis.client.Stub implements
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("", "makeBooking"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://www.example.org/HotelService/", "makeBooking"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {makeBookingRequest});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {in});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;

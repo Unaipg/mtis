@@ -8,7 +8,7 @@
 package org.example.www.HotelService;
 
 public interface HotelService_PortType extends java.rmi.Remote {
-    public org.example.www.HotelService.Hotel getHotels(java.lang.String parameters) throws java.rmi.RemoteException;
-    public org.example.www.HotelService.Room getRooms(org.example.www.HotelService.BookDates getRoomsRequest) throws java.rmi.RemoteException;
-    public boolean makeBooking(org.example.www.HotelService.Booking makeBookingRequest) throws java.rmi.RemoteException;
+    public org.example.www.HotelService.Hotel[] getHotels(java.lang.String in) throws java.rmi.RemoteException;
+    public org.example.www.HotelService.Room[] getRooms(org.example.www.HotelService.BookDates in) throws java.rmi.RemoteException;
+    public boolean makeBooking(org.example.www.HotelService.Booking in) throws java.rmi.RemoteException;
 }

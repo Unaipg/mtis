@@ -43,6 +43,17 @@
   <ns1:parameter name="allowedMethods" value="getVersion"/>
   <ns1:parameter name="className" value="org.apache.axis.Version"/>
  </ns1:service>
+ <ns1:service name="NewWSDLFileSOAP" provider="java:RPC" style="document" use="literal">
+  <ns1:parameter name="allowedMethods" value="*"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="NewWSDLFile"/>
+  <ns1:parameter name="className" value="org.example.www.NewWSDLFile.NewWSDLFileSOAPSkeleton"/>
+  <ns1:parameter name="wsdlServicePort" value="NewWSDLFileSOAP"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://www.example.org/NewWSDLFile/"/>
+  <ns1:parameter name="wsdlServiceElement" value="NewWSDLFile"/>
+  <ns1:parameter name="schemaUnqualified" value="http://www.example.org/NewWSDLFile/"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns2:empty" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:org.example.www.NewWSDLFile.Empty" xmlns:ns2="http://www.example.org/NewWSDLFile/"/>
+ </ns1:service>
  <ns1:transport name="http">
   <ns1:requestFlow>
    <ns1:handler type="URLMapper"/>

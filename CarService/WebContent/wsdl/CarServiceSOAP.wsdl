@@ -12,7 +12,21 @@
       <xsd:element name="getCarsResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="out" type="xsd:string"/>
+            <xsd:element name="out" type="tns:Cars"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="rentCars">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="tns:rentInfo"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="rentCarsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:boolean"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -20,6 +34,11 @@
       	<xsd:attribute name="id" type="xsd:int"/>
       	<xsd:attribute name="model" type="xsd:string"/>
       	<xsd:attribute name="price" type="xsd:float"/>
+      </xsd:complexType>
+      <xsd:complexType name="Cars">
+        <xsd:sequence>
+        	<xsd:element maxOccurs="unbounded" name="item" type="tns:Car"/>
+        </xsd:sequence>
       </xsd:complexType>
       <xsd:complexType name="getCarsInfo"/>
             <xsd:complexType name="getCarsInput">
@@ -35,25 +54,25 @@
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="getCarsRequest">
-    <wsdl:part name="parameters" type="tns:getCarsInput"/>
+    <wsdl:part element="tns:getCars" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="getCarsResponse">
-    <wsdl:part name="parameters" type="tns:Car"/>
+    <wsdl:part element="tns:getCarsResponse" name="parameters"/>
   </wsdl:message>
-  <wsdl:message name="rentCartRequest">
-  	<wsdl:part name="rentCartRequest" type="tns:rentInfo"/>
+  <wsdl:message name="rentCarsRequest">
+  	<wsdl:part element="tns:rentCars" name="rentCartRequest"/>
   </wsdl:message>
-  <wsdl:message name="rentCartResponse">
-  	<wsdl:part name="rentCartResponse" type="xsd:boolean"/>
+  <wsdl:message name="rentCarsResponse">
+  	<wsdl:part element="tns:rentCarsResponse" name="rentCarsResponse"/>
   </wsdl:message>
   <wsdl:portType name="CarService">
     <wsdl:operation name="getCars">
       <wsdl:input message="tns:getCarsRequest"/>
       <wsdl:output message="tns:getCarsResponse"/>
     </wsdl:operation>
-    <wsdl:operation name="rentCart">
-    	<wsdl:input message="tns:rentCartRequest"/>
-    	<wsdl:output message="tns:rentCartResponse"/>
+    <wsdl:operation name="rentCars">
+    	<wsdl:input message="tns:rentCarsRequest"/>
+    	<wsdl:output message="tns:rentCarsResponse"/>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="CarServiceSOAP" type="tns:CarService">
@@ -67,8 +86,8 @@
   			<soap:body use="literal"/>
   		</wsdl:output>
   	</wsdl:operation>
-  	<wsdl:operation name="rentCart">
-  		<soap:operation soapAction="http://www.example.org/CarService/rentCart"/>
+  	<wsdl:operation name="rentCars">
+  		<soap:operation soapAction="http://www.example.org/CarService/rentCars"/>
   		<wsdl:input>
   			<soap:body use="literal"/>
   		</wsdl:input>

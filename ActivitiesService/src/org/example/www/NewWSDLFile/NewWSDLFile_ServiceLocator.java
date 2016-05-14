@@ -1,59 +1,59 @@
 /**
- * TravelService_ServiceLocator.java
+ * NewWSDLFile_ServiceLocator.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package org.example.www.TravelService;
+package org.example.www.NewWSDLFile;
 
-public class TravelService_ServiceLocator extends org.apache.axis.client.Service implements org.example.www.TravelService.TravelService_Service {
+public class NewWSDLFile_ServiceLocator extends org.apache.axis.client.Service implements org.example.www.NewWSDLFile.NewWSDLFile_Service {
 
-    public TravelService_ServiceLocator() {
+    public NewWSDLFile_ServiceLocator() {
     }
 
 
-    public TravelService_ServiceLocator(org.apache.axis.EngineConfiguration config) {
+    public NewWSDLFile_ServiceLocator(org.apache.axis.EngineConfiguration config) {
         super(config);
     }
 
-    public TravelService_ServiceLocator(java.lang.String wsdlLoc, javax.xml.namespace.QName sName) throws javax.xml.rpc.ServiceException {
+    public NewWSDLFile_ServiceLocator(java.lang.String wsdlLoc, javax.xml.namespace.QName sName) throws javax.xml.rpc.ServiceException {
         super(wsdlLoc, sName);
     }
 
-    // Use to get a proxy class for TravelServiceSOAP
-    private java.lang.String TravelServiceSOAP_address = "http://www.example.org/";
+    // Use to get a proxy class for NewWSDLFileSOAP
+    private java.lang.String NewWSDLFileSOAP_address = "http://localhost:8080";
 
-    public java.lang.String getTravelServiceSOAPAddress() {
-        return TravelServiceSOAP_address;
+    public java.lang.String getNewWSDLFileSOAPAddress() {
+        return NewWSDLFileSOAP_address;
     }
 
     // The WSDD service name defaults to the port name.
-    private java.lang.String TravelServiceSOAPWSDDServiceName = "TravelServiceSOAP";
+    private java.lang.String NewWSDLFileSOAPWSDDServiceName = "NewWSDLFileSOAP";
 
-    public java.lang.String getTravelServiceSOAPWSDDServiceName() {
-        return TravelServiceSOAPWSDDServiceName;
+    public java.lang.String getNewWSDLFileSOAPWSDDServiceName() {
+        return NewWSDLFileSOAPWSDDServiceName;
     }
 
-    public void setTravelServiceSOAPWSDDServiceName(java.lang.String name) {
-        TravelServiceSOAPWSDDServiceName = name;
+    public void setNewWSDLFileSOAPWSDDServiceName(java.lang.String name) {
+        NewWSDLFileSOAPWSDDServiceName = name;
     }
 
-    public org.example.www.TravelService.TravelService_PortType getTravelServiceSOAP() throws javax.xml.rpc.ServiceException {
+    public org.example.www.NewWSDLFile.NewWSDLFile_PortType getNewWSDLFileSOAP() throws javax.xml.rpc.ServiceException {
        java.net.URL endpoint;
         try {
-            endpoint = new java.net.URL(TravelServiceSOAP_address);
+            endpoint = new java.net.URL(NewWSDLFileSOAP_address);
         }
         catch (java.net.MalformedURLException e) {
             throw new javax.xml.rpc.ServiceException(e);
         }
-        return getTravelServiceSOAP(endpoint);
+        return getNewWSDLFileSOAP(endpoint);
     }
 
-    public org.example.www.TravelService.TravelService_PortType getTravelServiceSOAP(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
+    public org.example.www.NewWSDLFile.NewWSDLFile_PortType getNewWSDLFileSOAP(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
         try {
-            org.example.www.TravelService.TravelServiceSOAPStub _stub = new org.example.www.TravelService.TravelServiceSOAPStub(portAddress, this);
-            _stub.setPortName(getTravelServiceSOAPWSDDServiceName());
+            org.example.www.NewWSDLFile.NewWSDLFileSOAPStub _stub = new org.example.www.NewWSDLFile.NewWSDLFileSOAPStub(portAddress, this);
+            _stub.setPortName(getNewWSDLFileSOAPWSDDServiceName());
             return _stub;
         }
         catch (org.apache.axis.AxisFault e) {
@@ -61,8 +61,8 @@ public class TravelService_ServiceLocator extends org.apache.axis.client.Service
         }
     }
 
-    public void setTravelServiceSOAPEndpointAddress(java.lang.String address) {
-        TravelServiceSOAP_address = address;
+    public void setNewWSDLFileSOAPEndpointAddress(java.lang.String address) {
+        NewWSDLFileSOAP_address = address;
     }
 
     /**
@@ -72,9 +72,9 @@ public class TravelService_ServiceLocator extends org.apache.axis.client.Service
      */
     public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
         try {
-            if (org.example.www.TravelService.TravelService_PortType.class.isAssignableFrom(serviceEndpointInterface)) {
-                org.example.www.TravelService.TravelServiceSOAPStub _stub = new org.example.www.TravelService.TravelServiceSOAPStub(new java.net.URL(TravelServiceSOAP_address), this);
-                _stub.setPortName(getTravelServiceSOAPWSDDServiceName());
+            if (org.example.www.NewWSDLFile.NewWSDLFile_PortType.class.isAssignableFrom(serviceEndpointInterface)) {
+                org.example.www.NewWSDLFile.NewWSDLFileSOAPStub _stub = new org.example.www.NewWSDLFile.NewWSDLFileSOAPStub(new java.net.URL(NewWSDLFileSOAP_address), this);
+                _stub.setPortName(getNewWSDLFileSOAPWSDDServiceName());
                 return _stub;
             }
         }
@@ -94,8 +94,8 @@ public class TravelService_ServiceLocator extends org.apache.axis.client.Service
             return getPort(serviceEndpointInterface);
         }
         java.lang.String inputPortName = portName.getLocalPart();
-        if ("TravelServiceSOAP".equals(inputPortName)) {
-            return getTravelServiceSOAP();
+        if ("NewWSDLFileSOAP".equals(inputPortName)) {
+            return getNewWSDLFileSOAP();
         }
         else  {
             java.rmi.Remote _stub = getPort(serviceEndpointInterface);
@@ -105,7 +105,7 @@ public class TravelService_ServiceLocator extends org.apache.axis.client.Service
     }
 
     public javax.xml.namespace.QName getServiceName() {
-        return new javax.xml.namespace.QName("http://www.example.org/TravelService/", "TravelService");
+        return new javax.xml.namespace.QName("http://www.example.org/NewWSDLFile/", "NewWSDLFile");
     }
 
     private java.util.HashSet ports = null;
@@ -113,7 +113,7 @@ public class TravelService_ServiceLocator extends org.apache.axis.client.Service
     public java.util.Iterator getPorts() {
         if (ports == null) {
             ports = new java.util.HashSet();
-            ports.add(new javax.xml.namespace.QName("http://www.example.org/TravelService/", "TravelServiceSOAP"));
+            ports.add(new javax.xml.namespace.QName("http://www.example.org/NewWSDLFile/", "NewWSDLFileSOAP"));
         }
         return ports.iterator();
     }
@@ -123,8 +123,8 @@ public class TravelService_ServiceLocator extends org.apache.axis.client.Service
     */
     public void setEndpointAddress(java.lang.String portName, java.lang.String address) throws javax.xml.rpc.ServiceException {
         
-if ("TravelServiceSOAP".equals(portName)) {
-            setTravelServiceSOAPEndpointAddress(address);
+if ("NewWSDLFileSOAP".equals(portName)) {
+            setNewWSDLFileSOAPEndpointAddress(address);
         }
         else 
 { // Unknown Port Name

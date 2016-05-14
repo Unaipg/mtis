@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/NewWSDLFile/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="NewWSDLFile" targetNamespace="http://www.example.org/NewWSDLFile/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/NewWSDLFile/">
+      <xsd:element name="prueba">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="pruebaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:complexType name="empty"/>
+        </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="pruebaRequest">
+    <wsdl:part name="parameters" type="tns:empty"/>
+  </wsdl:message>
+  <wsdl:message name="pruebaResponse">
+    <wsdl:part name="parameters" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:portType name="NewWSDLFile">
+    <wsdl:operation name="prueba">
+      <wsdl:input message="tns:pruebaRequest"/>
+      <wsdl:output message="tns:pruebaResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NewWSDLFileSOAP" type="tns:NewWSDLFile">
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  	<wsdl:operation name="prueba">
+  		<soap:operation soapAction="http://www.example.org/NewWSDLFile/prueba"/>
+  		<wsdl:input>
+  			<soap:body use="literal"/>
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal"/>
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NewWSDLFile">
+    <wsdl:port binding="tns:NewWSDLFileSOAP" name="NewWSDLFileSOAP">
+      <soap:address location="http://localhost:8080/ActivitiesService/services/NewWSDLFileSOAP"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

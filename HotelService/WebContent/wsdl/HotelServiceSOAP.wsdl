@@ -2,26 +2,45 @@
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/HotelService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="HotelService" targetNamespace="http://www.example.org/HotelService/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://www.example.org/HotelService/">
+      <xsd:element name="getHotels">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
       <xsd:element name="getHotelsResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="out" type="xsd:string"/>
+            <xsd:element name="out" type="tns:Hotels"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getRooms">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="in" type="tns:BookDates"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
       <xsd:element name="getRoomsResponse">
       	<xsd:complexType>
       		<xsd:sequence>
-
-      			<xsd:element name="out" type="xsd:string"/>
+      			<xsd:element name="out" type="tns:Rooms"/>
       		</xsd:sequence>
       	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="makeBooking">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="in" type="tns:Booking"/>
+          </xsd:sequence>
+        </xsd:complexType>
       </xsd:element>
       <xsd:element name="makeBookingResponse">
       	<xsd:complexType>
       		<xsd:sequence>
-
-      			<xsd:element name="out" type="xsd:string"/>
+      			<xsd:element name="out" type="xsd:boolean"/>
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>
@@ -30,11 +49,21 @@
       	<xsd:attribute name="id" type="xsd:int"/>
       	<xsd:attribute name="name" type="xsd:string"/>
       </xsd:complexType>
+      <xsd:complexType name="Hotels">
+        <xsd:sequence>
+        	<xsd:element maxOccurs="unbounded" name="item" type="tns:Hotel"/>
+        </xsd:sequence>
+      </xsd:complexType>
       
       <xsd:complexType name="Room">
       	<xsd:attribute name="id" type="xsd:int"/>
       	<xsd:attribute name="price" type="xsd:float"/>
       	<xsd:attribute name="class" type="xsd:string"/>
+      </xsd:complexType>
+      <xsd:complexType name="Rooms">
+        <xsd:sequence>
+        	<xsd:element maxOccurs="unbounded" name="item" type="tns:Room"/>
+        </xsd:sequence>
       </xsd:complexType>
       
       <xsd:complexType name="Booking">
@@ -47,22 +76,22 @@
         </xsd:schema>
   </wsdl:types>
   <wsdl:message name="getHotelsRequest">
-    <wsdl:part name="parameters" type="xsd:string"/>
+    <wsdl:part element="tns:getHotels" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="getHotelsResponse">
-    <wsdl:part name="parameters" type="tns:Hotel"/>
+    <wsdl:part element="tns:getHotelsResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="getRoomsRequest">
-  	<wsdl:part name="getRoomsRequest" type="tns:BookDates"/>
+  	<wsdl:part element="tns:getRooms" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="getRoomsResponse">
-  	<wsdl:part name="parameters" type="tns:Room"/>
+  	<wsdl:part element="tns:getRoomsResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="makeBookingRequest">
-  	<wsdl:part name="makeBookingRequest" type="tns:Booking"/>
+  	<wsdl:part element="tns:makeBooking" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="makeBookingResponse">
-  	<wsdl:part name="parameters" type="xsd:boolean"/>
+  	<wsdl:part element="tns:makeBookingResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:portType name="HotelService">
     <wsdl:operation name="getHotels">
@@ -79,34 +108,34 @@
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="HotelServiceSOAP" type="tns:HotelService">
-    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="getHotels">
-      <soap:operation soapAction="http://www.example.org/HotelService/getHotels"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getRooms">
-      <soap:operation soapAction="http://www.example.org/HotelService/getRooms"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="makeBooking">
-      <soap:operation soapAction="http://www.example.org/HotelService/makeBooking"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  	<wsdl:operation name="getHotels">
+  		<soap:operation soapAction="http://www.example.org/HotelService/getHotels"/>
+  		<wsdl:input>
+  			<soap:body use="literal"/>
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal"/>
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="getRooms">
+  		<soap:operation soapAction="http://www.example.org/HotelService/getRooms"/>
+  		<wsdl:input>
+  			<soap:body use="literal"/>
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal"/>
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="makeBooking">
+  		<soap:operation soapAction="http://www.example.org/HotelService/makeBooking"/>
+  		<wsdl:input>
+  			<soap:body use="literal"/>
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal"/>
+  		</wsdl:output>
+  	</wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="HotelService">
     <wsdl:port binding="tns:HotelServiceSOAP" name="HotelServiceSOAP">
